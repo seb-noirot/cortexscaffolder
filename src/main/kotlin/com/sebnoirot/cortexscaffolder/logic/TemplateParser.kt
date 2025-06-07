@@ -161,7 +161,7 @@ class TemplateParser(private val project: Project) {
 
                 // Create a more user-friendly display name
                 val displayName = cleanPath.split('.').joinToString(" ") { 
-                    it.replace(Regex("([a-z])([A-Z])"), "$1 $2").capitalize() 
+                    it.replace(Regex("([a-z])([A-Z])"), "$1 $2").replaceFirstChar { it.titlecase() } 
                 }
 
                 // Store the original path parts for proper JSON structure

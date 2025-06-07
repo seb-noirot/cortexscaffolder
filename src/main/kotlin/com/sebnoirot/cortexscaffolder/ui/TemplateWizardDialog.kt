@@ -10,6 +10,7 @@ import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
+import com.intellij.openapi.ui.TextBrowseFolderListener
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.ui.components.JBLabel
@@ -181,12 +182,11 @@ class TemplateWizardDialog(private val project: Project) : DialogWrapper(project
         title = "Run Cortex Template"
 
         // Configure the target folder field with a folder chooser
-        targetFolderField.addBrowseFolderListener(
-            "Select Target Folder",
-            "Choose the folder where the template will be generated",
-            project,
-            FileChooserDescriptorFactory.createSingleFolderDescriptor()
-        )
+        val descriptor = FileChooserDescriptorFactory.createSingleFolderDescriptor()
+        descriptor.title = "Select Target Folder"
+        descriptor.description = "Choose the folder where the template will be generated"
+        val listener = TextBrowseFolderListener(descriptor, project)
+        targetFolderField.addActionListener(listener)
 
         // Configure the refresh button
         refreshBranchesButton.addActionListener {

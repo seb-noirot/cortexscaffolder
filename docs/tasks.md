@@ -207,3 +207,44 @@ Update the wizard to let users select a Git branch or tag before cloning the tem
 - Do not rely on `--checkout`, as the template is used from a local path
 
 If no ref is selected, use the default HEAD.
+```
+
+### 21. Replace Internal API Usage - [x]
+```juni
+Audit and replace any usage of IntelliJ Platform APIs annotated with `@ApiStatus.Internal`.
+
+Follow the Internal API Migration Guidelines and identify supported, stable alternatives for each usage.
+
+Refactor the code to remove reliance on internal APIs to ensure forward compatibility with future IntelliJ versions.
+```
+
+### 22. Replace TextFieldWithBrowseButton.addBrowseFolderListener (Scheduled for Removal) - [x]
+```juni
+The method `TextFieldWithBrowseButton.addBrowseFolderListener(...)` is scheduled for removal.
+
+Replace it using the recommended IntelliJ API:
+- Use `TextBrowseFolderListener` with a `FileChooserDescriptor`
+- Register it with `addActionListener(...)` instead of the deprecated shortcut method
+
+Ensure compatibility with IntelliJ Platform 2025.2+.
+```
+
+### 23. Replace Deprecated ProcessAdapter Class - [x]
+```juni
+The class `ProcessAdapter` is deprecated.
+
+Replace it with `ProcessListener` and override the required methods explicitly.
+
+Update `CookiecutterRunner.runCookiecutter()` to use `ProcessHandler.addProcessListener(...)` with a proper implementation of `ProcessListener` instead of the deprecated `ProcessAdapter`.
+```
+
+### 24. Replace Deprecated capitalize(String) Extension - [x]
+```juni
+The Kotlin extension function `capitalize()` is deprecated.
+
+Replace usages like `string.capitalize()` with the idiomatic alternative:
+
+string.replaceFirstChar { it.titlecase() }
+
+Update `TemplateParser.extractVariablesFromContent` accordingly.
+```

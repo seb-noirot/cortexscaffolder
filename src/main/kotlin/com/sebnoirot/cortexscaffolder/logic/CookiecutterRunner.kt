@@ -3,8 +3,8 @@ package com.sebnoirot.cortexscaffolder.logic
 import com.intellij.execution.ExecutionException
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.process.OSProcessHandler
-import com.intellij.execution.process.ProcessAdapter
 import com.intellij.execution.process.ProcessEvent
+import com.intellij.execution.process.ProcessListener
 import com.intellij.execution.process.ProcessOutputTypes
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.progress.ProgressIndicator
@@ -76,7 +76,7 @@ class CookiecutterRunner(private val project: Project) {
             val errorBuffer = StringBuilder()
 
             // Attach a process listener to capture output
-            processHandler.addProcessListener(object : ProcessAdapter() {
+            processHandler.addProcessListener(object : ProcessListener {
                 override fun onTextAvailable(event: ProcessEvent, outputType: Key<*>) {
                     val text = event.text
                     if (text != null) {
@@ -91,6 +91,14 @@ class CookiecutterRunner(private val project: Project) {
                             outputBuffer.append(text)
                         }
                     }
+                }
+
+                override fun processTerminated(event: ProcessEvent) {
+                    // Not needed for this implementation
+                }
+
+                override fun startNotified(event: ProcessEvent) {
+                    // Not needed for this implementation
                 }
             })
 

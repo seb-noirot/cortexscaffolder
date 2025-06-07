@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowManager
 import com.intellij.openapi.wm.RegisterToolWindowTask
-import com.intellij.ui.content.ContentFactory
+import com.intellij.ui.content.ContentManager
 import javax.swing.JComponent
 
 /**
@@ -31,8 +31,7 @@ class CookiecutterConsole(private val project: Project) {
             }
 
             // Create a content for the tool window
-            val contentFactory = ContentFactory.getInstance()
-            val content = contentFactory.createContent(consoleView.component, "Cookiecutter Output", false)
+            val content = toolWindow.contentManager.factory.createContent(consoleView.component, "Cookiecutter Output", false)
 
             // Add the content to the tool window
             toolWindow.contentManager.addContent(content)
