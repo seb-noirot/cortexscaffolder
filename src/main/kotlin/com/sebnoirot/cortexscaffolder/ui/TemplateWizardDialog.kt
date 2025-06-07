@@ -185,8 +185,7 @@ class TemplateWizardDialog(private val project: Project) : DialogWrapper(project
         val descriptor = FileChooserDescriptorFactory.createSingleFolderDescriptor()
         descriptor.title = "Select Target Folder"
         descriptor.description = "Choose the folder where the template will be generated"
-        val listener = TextBrowseFolderListener(descriptor, project)
-        targetFolderField.addActionListener(listener)
+        targetFolderField.addBrowseFolderListener("Select Target Folder", "Choose the folder where the template will be generated", project, descriptor)
 
         // Configure the refresh button
         refreshBranchesButton.addActionListener {
