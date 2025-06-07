@@ -1,4 +1,4 @@
-package com.github.sebnoirot.cortexscaffolder.toolWindow
+package com.sebnoirot.cortexscaffolder.ui
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
@@ -8,8 +8,8 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanel
 import com.intellij.ui.content.ContentFactory
-import com.github.sebnoirot.cortexscaffolder.MyBundle
-import com.github.sebnoirot.cortexscaffolder.services.MyProjectService
+import com.sebnoirot.cortexscaffolder.MyBundle
+import com.sebnoirot.cortexscaffolder.logic.MyProjectService
 import javax.swing.JButton
 
 

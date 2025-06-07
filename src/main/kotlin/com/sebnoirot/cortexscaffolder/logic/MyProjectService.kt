@@ -1,9 +1,9 @@
-package com.github.sebnoirot.cortexscaffolder.services
+package com.sebnoirot.cortexscaffolder.logic
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.github.sebnoirot.cortexscaffolder.MyBundle
+import com.sebnoirot.cortexscaffolder.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {

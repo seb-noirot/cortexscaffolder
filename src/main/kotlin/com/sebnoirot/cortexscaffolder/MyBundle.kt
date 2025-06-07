@@ -1,4 +1,4 @@
-package com.github.sebnoirot.cortexscaffolder
+package com.sebnoirot.cortexscaffolder
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls

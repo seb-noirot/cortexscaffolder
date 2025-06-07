@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.sebnoirot.cortexscaffolder</id>
-    <name>cortexscaffolder</name>
+    <id>com.sebnoirot.cortexscaffolder</id>
+    <name>Cortex Scaffolder</name>
     <vendor>seb-noirot</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -9,7 +9,34 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.sebnoirot.cortexscaffolder.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.sebnoirot.cortexscaffolder.startup.MyProjectActivity" />
+        <toolWindow factoryClass="com.sebnoirot.cortexscaffolder.ui.MyToolWindowFactory" id="MyToolWindow"/>
+        <postStartupActivity implementation="com.sebnoirot.cortexscaffolder.startup.MyProjectActivity" />
+
+        <!-- Settings -->
+        <projectService serviceImplementation="com.sebnoirot.cortexscaffolder.settings.CortexScaffolderSettings"/>
+        <projectConfigurable
+                parentId="tools"
+                instance="com.sebnoirot.cortexscaffolder.settings.CortexScaffolderConfigurable"
+                id="com.sebnoirot.cortexscaffolder.settings.CortexScaffolderConfigurable"
+                displayName="Cortex Scaffolder"/>
     </extensions>
+
+    <actions>
+        <group id="CortexScaffolder.Menu" 
+               text="Cortex Scaffolder" 
+               description="Cortex Scaffolder actions"
+               popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+
+            <action id="CortexScaffolder.RunTemplate"
+                    class="com.sebnoirot.cortexscaffolder.actions.RunCortexTemplateAction"
+                    text="Run Cortex Template"
+                    description="Run a Cortex-style Cookiecutter template"/>
+
+            <action id="CortexScaffolder.OpenSettings"
+                    class="com.sebnoirot.cortexscaffolder.actions.OpenCortexSettingsAction"
+                    text="Settings"
+                    description="Open Cortex Scaffolder settings panel"/>
+        </group>
+    </actions>
 </idea-plugin>

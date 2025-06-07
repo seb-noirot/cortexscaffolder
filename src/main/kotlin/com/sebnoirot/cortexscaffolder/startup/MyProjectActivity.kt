@@ -1,4 +1,4 @@
-package com.github.sebnoirot.cortexscaffolder.startup
+package com.sebnoirot.cortexscaffolder.startup
 
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
