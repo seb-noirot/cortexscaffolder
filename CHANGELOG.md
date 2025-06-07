@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.0.7] - 2025-06-07
+
+- Changelog update - `v0.0.6` by @github-actions in https://github.com/seb-noirot/cortexscaffolder/pull/10
+
 ## [0.0.6] - 2025-06-07
 
 - Changelog update - `v0.0.5` by @github-actions in https://github.com/seb-noirot/cortexscaffolder/pull/9
@@ -20,7 +24,8 @@
 
 **Full Changelog**: https://github.com/seb-noirot/cortexscaffolder/commits/v0.0.2
 
-[Unreleased]: https://github.com/seb-noirot/cortexscaffolder/compare/v0.0.6...HEAD
+[Unreleased]: https://github.com/seb-noirot/cortexscaffolder/compare/v0.0.7...HEAD
+[0.0.7]: https://github.com/seb-noirot/cortexscaffolder/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/seb-noirot/cortexscaffolder/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/seb-noirot/cortexscaffolder/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/seb-noirot/cortexscaffolder/compare/v0.0.2...v0.0.4
