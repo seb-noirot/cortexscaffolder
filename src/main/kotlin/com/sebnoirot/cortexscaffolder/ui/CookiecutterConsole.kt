@@ -3,12 +3,9 @@ package com.sebnoirot.cortexscaffolder.ui
 import com.intellij.execution.filters.TextConsoleBuilderFactory
 import com.intellij.execution.ui.ConsoleView
 import com.intellij.execution.ui.ConsoleViewContentType
-import com.intellij.icons.AllIcons
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowManager
-import com.intellij.openapi.wm.RegisterToolWindowTask
-import com.intellij.ui.content.ContentManager
 import javax.swing.JComponent
 
 /**
@@ -24,13 +21,8 @@ class CookiecutterConsole(private val project: Project) {
     fun show() {
         com.intellij.openapi.application.ApplicationManager.getApplication().invokeLater {
             val toolWindowManager = ToolWindowManager.getInstance(project)
-            var toolWindow = toolWindowManager.getToolWindow("Cortex Console")
-
-            if (toolWindow == null) {
-                // If the tool window doesn't exist, create it
-                val task = RegisterToolWindowTask.closable("Cortex Console", AllIcons.General.Information)
-                toolWindow = toolWindowManager.registerToolWindow(task)
-            }
+            val toolWindow = toolWindowManager.getToolWindow("Cortex Console")
+                ?: throw IllegalStateException("Cortex Console tool window not found. Make sure it's registered in plugin.xml.")
 
             // Create a content for the tool window
             val content = toolWindow.contentManager.factory.createContent(consoleView.component, "Cookiecutter Output", false)
