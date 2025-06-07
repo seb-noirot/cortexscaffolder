@@ -5,6 +5,7 @@ import com.intellij.execution.ui.ConsoleView
 import com.intellij.execution.ui.ConsoleViewContentType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
+import com.intellij.openapi.wm.ToolWindowAnchor
 import com.intellij.openapi.wm.ToolWindowManager
 import com.intellij.openapi.wm.RegisterToolWindowTask
 import com.intellij.ui.content.ContentManager
@@ -23,11 +24,12 @@ class CookiecutterConsole(private val project: Project) {
     fun show() {
         com.intellij.openapi.application.ApplicationManager.getApplication().invokeLater {
             val toolWindowManager = ToolWindowManager.getInstance(project)
-            var toolWindow = toolWindowManager.getToolWindow("Cortex Scaffolder")
+            var toolWindow = toolWindowManager.getToolWindow("Cortex Console")
 
             if (toolWindow == null) {
                 // If the tool window doesn't exist, create it
-                toolWindow = toolWindowManager.registerToolWindow(RegisterToolWindowTask("Cortex Scaffolder"))
+                val task = RegisterToolWindowTask.closable("Cortex Console", ToolWindowAnchor.BOTTOM)
+                toolWindow = toolWindowManager.registerToolWindow(task)
             }
 
             // Create a content for the tool window

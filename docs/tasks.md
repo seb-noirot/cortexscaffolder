@@ -248,3 +248,15 @@ string.replaceFirstChar { it.titlecase() }
 
 Update `TemplateParser.extractVariablesFromContent` accordingly.
 ```
+
+### 25. Replace Internal API Usage: ToolWindowManager.registerToolWindow - [x]
+```juni
+Replace the internal API usage of `ToolWindowManager.registerToolWindow(String, boolean)` with the supported public API.
+
+Use the `RegisterToolWindowTask` class and call:
+
+val task = RegisterToolWindowTask.closable("Cortex Console", ToolWindowAnchor.BOTTOM)
+ToolWindowManager.getInstance(project).registerToolWindow(task)
+
+This avoids using internal methods and ensures compatibility with IntelliJ Platform 2025.2+.
+```
