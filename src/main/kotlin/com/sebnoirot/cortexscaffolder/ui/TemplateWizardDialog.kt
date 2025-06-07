@@ -1,38 +1,26 @@
 package com.sebnoirot.cortexscaffolder.ui
 
+import com.intellij.ide.impl.ProjectUtil
 import com.intellij.openapi.diagnostic.thisLogger
+import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
+import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
 import com.intellij.openapi.project.Project
-import com.intellij.ide.impl.ProjectUtil
-import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
-import com.intellij.openapi.ui.TextBrowseFolderListener
-import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.vfs.LocalFileSystem
-import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
-import com.intellij.util.ui.JBUI
 import com.sebnoirot.cortexscaffolder.logic.CookiecutterRunner
 import com.sebnoirot.cortexscaffolder.logic.GitCloner
 import com.sebnoirot.cortexscaffolder.logic.TemplateParser
 import com.sebnoirot.cortexscaffolder.settings.CortexScaffolderSettings
-import com.sebnoirot.cortexscaffolder.ui.CookiecutterConsole
-import javax.swing.JComponent
-import javax.swing.JPanel
-import javax.swing.JComboBox
-import javax.swing.DefaultComboBoxModel
-import javax.swing.JButton
-import javax.swing.SwingUtilities
 import java.awt.event.ItemEvent
-import java.awt.event.ActionEvent
-import java.awt.event.ActionListener
 import java.io.File
-import com.intellij.openapi.project.ProjectManager
+import javax.swing.*
 
 /**
  * Dialog to collect template information from the user.

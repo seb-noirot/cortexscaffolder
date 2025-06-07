@@ -1,19 +1,18 @@
 package com.sebnoirot.cortexscaffolder.ui
 
-import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.components.JBLabel
-import com.intellij.ui.components.JBTextField
 import com.intellij.ui.components.JBScrollPane
+import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.UIUtil
 import com.sebnoirot.cortexscaffolder.logic.TemplateParser.TemplateVariable
-import javax.swing.JComboBox
-import javax.swing.*
 import java.awt.BorderLayout
-import java.awt.GridLayout
+import javax.swing.BorderFactory
+import javax.swing.JComboBox
+import javax.swing.JPanel
 
 /**
  * Dialog to collect input for template variables from the user.
